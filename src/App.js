@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, createContext,useContext } from "react";
+import B from "./B";
+import C from "./C";
+import AppContext from "./AppContext";
 
 function App() {
+
+
+  const [user, setUser] = useState("Nisarg");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    <AppContext.Provider value={user}>
+
+      <div style={{ "background-color": "grey", "padding": "4rem" }}>
+        <h1>App {user}</h1>
+        <B/>
+        <C/>
+      </div>
+
+    </AppContext.Provider>
+
+
+
+  )
+
 }
+
 
 export default App;
