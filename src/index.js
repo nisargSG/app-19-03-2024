@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { Suspense } from "react";
+
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+
 import reportWebVitals from './reportWebVitals';
-import MyApp from './MyApp';
-import Memo from './Memo';
-import UseCallBack from './UseCallBack';
-import Parent from './Parent';
+import ErrorBounry from "./ErrorBoundry";
+
+//import LazyComp from './LazyComp';
+
+const LazyComp = React.lazy(() => import("./LazyComp"));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Parent />
+
+    <ErrorBounry>
+        <Suspense fallback={<h1>Loading....</h1>}>
+            <LazyComp />
+        </Suspense>
+    </ErrorBounry>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

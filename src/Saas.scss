@@ -1,0 +1,14 @@
+
+@mixin marginAdder($fontSize){
+    margin: 4rem;
+    font-size: $fontSize;
+}
+
+
+
+.myDiv{
+    @include marginAdder(40px);
+    background-color: yellow;
+    color: black;
+
+}
